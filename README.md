@@ -12,7 +12,11 @@
 
 <img src="https://i.imgur.com/e5KWPUF.png" height="50%" width="50%" alt="local group policy editor screen"/>
 
-**How to check the minimum password length**
+**How to check the minimum password length on a Windows 10 computer**
+- Search 'edit group policy' -> Windows Settings -> Security Settings -> Account Policies -> Password Policy
+
+<img src="https://i.imgur.com/LROYbs3.png" height="50%" width="50%" alt="Check minimum password length"/>
+
 
 **How to change minimum password length from DC**
 - Group Policy Management -> Forest -> Domains -> Right click Default Domain Policy -> Edit -> Policies -> Windows Settings -> Security Settings -> Account Policies -> Password Policy -> Minimum password length
