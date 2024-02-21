@@ -17,6 +17,11 @@
 
 <img src="https://i.imgur.com/LROYbs3.png" height="50%" width="50%" alt="Check minimum password length"/>
 
+**From DC (Domain controller) how to check default domain policy**
+- Group Policy Management -> Default Domain Policy -> Settings
+- This will generate a report of the default domain policy
+
+<img src="https://i.imgur.com/tQVq3p4.png" height="60%" width="60%" alt="Default group policy report"/>
 
 **How to change minimum password length from DC**
 - Group Policy Management -> Forest -> Domains -> Right click Default Domain Policy -> Edit -> Policies -> Windows Settings -> Security Settings -> Account Policies -> Password Policy -> Minimum password length
