@@ -75,5 +75,26 @@ Need to create a shared folder so other computers can have access to this folder
 File explorere -> This PC -> C: -> Create new folder name it software -> Right click folder -> Properties -> Sharing -> Advanced Sharing -> Check 'share this folder' -> Permissions -> Add -> Type domain users -> For now check full control, change, read -> and give Everyone full access 
 
 Verify that you can get to this path:
+- Win 10 -> File explorer -> in search bar type the path to this file eg \\plabdc01\\software
 
+Download firefox from win 10
+- google --> firefox download msi
+- click 'Deploy firefox with msi installers - mozilla support'
+- Under MSI installers click the link: https://www.mozilla.org/firefox/all
+- select your preferred installer: Windows 64-bit MSI -> Download Now
+
+Once download is complete copy the firefox folder and paste it into the shared folder
+
+Go back to DC -> Group policy management --> right click firefox folder -> edit -> policies -> software settings -> right click software installation -> new -> package 
+- Type the network path in the search bar eg \\plabdc01 -> Software -> Firefox setup -> check assigned ->
+
+if don't see the GP right click refresh
+
+Need to go back and apply this policy 
+- Group policy management -> Staff -> firefox -> remove authenticated users -> add -> object types -> check everything -> type in the computer name eg plabwin101
+
+In win 10 comp apply for policy
+- cmd -> 'gpupdate /force'
+- should get a message that says for this policy to be applied to PC needs to be restarted
+- restart this machine
 
