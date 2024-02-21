@@ -45,7 +45,7 @@
 <img src="https://i.imgur.com/MyVh1TR.png" height="60%" width="60%" alt="Resultant set of policy screen showing password policy"/>
 
 **From rsop.msc can also see Group Policy for other users that are part of this computer**
-- Right click the computer name -> Change Query -> This computer -> Select a specific user
+- Right click the computer name -> Change Query -> This computer -> Select a user
 
 **Deploy a software from Group Policy**
 - Group Policy Management -> Domain -> Right click the OU -> Create a GPO in this domain, and link it here
@@ -55,3 +55,25 @@
   - File explorer -> \\DC\software
 - In Win 10 go to google and search 'firefox download msi' -> Deploy Firefox with MSI installers -> Under MSI Installers click the link https://www.mozilla.org/firefox/all/
 - Select your preferred installer: Windows 64-bit MSI -> Download -> Open folder
+
+need m.sci file
+
+can create a OU in AD and deploy group policy on top of that OU 
+
+start -> Windows Administrative Tools -> Group Policy Management -> Forest -> Domains -> Domain 
+
+ADUC -> Domain name -> Right click OU name and create an OU, this eg call it Staff -> 
+
+From Staff is where we want to deploy GP, anything inside Staff will get the GP
+
+Put the computer inside the Staff OU so that the GP can be applied to the computer
+
+Here we are going to setup a GP to install a software from the GP
+Open GP management -> forest -> Domains -> Domain name -> Right click Staff OU -> Create a GPO in this domain, and Link it here -> In this eg name it firefox
+
+Need to create a shared folder so other computers can have access to this folder through the network:
+File explorere -> This PC -> C: -> Create new folder name it software -> Right click folder -> Properties -> Sharing -> Advanced Sharing -> Check 'share this folder' -> Permissions -> Add -> Type domain users -> For now check full control, change, read -> and give Everyone full access 
+
+Verify that you can get to this path:
+
+
