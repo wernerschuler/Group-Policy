@@ -23,8 +23,10 @@
 
 <img src="https://i.imgur.com/tQVq3p4.png" height="60%" width="60%" alt="Default group policy report"/>
 
-**How to change minimum password length from DC**
+**How to change a Group Policy. For example, changing the minimum password length**
 - Group Policy Management -> Forest -> Domains -> Right click Default Domain Policy -> Edit -> Policies -> Windows Settings -> Security Settings -> Account Policies -> Password Policy -> Minimum password length
+
+<img src="https://i.imgur.com/1dvrqhA.png" height="60%" width="60%" alt="Password policy editor screen"/>
 
 **Once a policy has been applied how can it be implemented to a client machine**
 - Restart the machine
