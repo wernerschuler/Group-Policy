@@ -36,7 +36,10 @@
 
 **If you don't have access to DC, how can you see Group Policy from your machine?**
 - Run cmd as an admin -> 'gpresult' -> 'gpresult /h' specify a path eg 'c:\gpresults.html'
-- Go to the file that was created, from there you will see the Group Policy
+- Go to the file that was created, from there you will see the Group Policy. Screenshot below displays this
+
+<img src="https://i.imgur.com/Wc6DrZ0.png" height="60%" width="60%" alt="Screen showing password and account policy"/>
+
 - Another method you can use: search in start 'rsop.msc'
 
 **From rsop.msc can also see Group Policy for other users that are part of this computer**
