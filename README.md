@@ -42,6 +42,8 @@
 
 - Another method you can use: search in start 'rsop.msc'
 
+<img src="https://i.imgur.com/MyVh1TR.png" height="60%" width="60%" alt="Resultant set of policy screen showing password policy"/>
+
 **From rsop.msc can also see Group Policy for other users that are part of this computer**
 - Right click the computer name -> Change Query -> This computer -> Select a specific user
 
