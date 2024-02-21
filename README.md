@@ -32,6 +32,7 @@
 - Restart the machine
 - Or cmd -> 'gpupdate /force'
 - The changes made in the domain will now be applied to this machine
+- **Note:** Some policy may require a restart
 
 **If you don't have access to DC, how can you see Group Policy from your machine?**
 - Run cmd as an admin -> 'gpresult' -> 'gpresult /h' specify a path eg 'c:\gpresults.html'
