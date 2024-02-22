@@ -55,6 +55,9 @@
 - Now the other computers in the OU need to be able to access this Firefox file through network share.
   - File Explorer -> This PC -> (C:) -> Create a folder, in this example the folder is called Software -> Right click the folder -> Properties -> Sharing -> Advanced Sharing -> Check 'Share this folder' -> Permissions -> Add -> type 'domain users' -> Check Names -> OK -> For now give domain users and everyone full access
 - Make a note of the network path
+
+<img src="https://i.imgur.com/iwQNzFO.png" height="60%" width="60%" alt="Screenshot showing the network path for software folder"/>
+
 - Login to a client computer using a domain user account
 - In File explorer enter the network path into the search bar
 - In Google search firefox download msi -> Click the 'Deploy Firefox with MSI installers - Mozilla Support' link -> Scroll down and click the link under MSI Installers
@@ -65,7 +68,8 @@
 - In Group Policy Management remove Authenticated Users
 - Add -> Object Types -> Check Computers
 - Enter the client computer name
-- From the client computer
+- From the client computer -> cmd -> 'gpupdate /force' -> Restart the computer
+- Log back into the client machine and check if Firefox has been installed
 
 
 
