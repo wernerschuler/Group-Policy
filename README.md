@@ -47,16 +47,29 @@
 **From rsop.msc can also see Group Policy for other users that are part of this computer**
 - Right click the computer name -> Change Query -> This computer -> Select a user
 
-**Deploy a software from Group Policy**
-- Group Policy Management -> Domain -> Right click the OU -> Create a GPO in this domain, and link it here
-- Other computers in the network should be able to access the file through network share:
-  - This PC -> C: -> New Folder -> Right click -> Properties -> Sharing -> Advanced Sharing -> Check 'Share this folder' -> Permissions -> Add -> Type 'domain users' -> For now give full access
-- From a client machine, verify you have access to that path:
-  - File explorer -> \\DC\software
-- In Win 10 go to google and search 'firefox download msi' -> Deploy Firefox with MSI installers -> Under MSI Installers click the link https://www.mozilla.org/firefox/all/
-- Select your preferred installer: Windows 64-bit MSI -> Download -> Open folder
+**Deploy a software from Group Policy. In this example I will be deploying Firefox**
+- **Note:** Software can be deployed through an Organisational Unit (OU) in Active Directory.
+- In DC -> ADUC -> Create an OU -> I have created an OU called 'Staff'
+- Move the computer that you would like the Group Policy to be applied to into the Staff OU
+- Go Group Policy Management -> Right click the Staff OU -> Create a GPO in this domain, and Link it here -> Give the GPO a name, I will name it Firefox
+- Now the other computers in the OU need to be able to access this Firefox file through network share.
+  - File Explorer -> This PC -> (C:) -> Create a folder, in this example the folder is called Software -> Right click the folder -> Properties -> Sharing -> Advanced Sharing -> Check 'Share this folder' -> Permissions -> Add -> type 'domain users' -> Check Names -> OK -> For now give domain users and everyone full access
+- Make a note of the network path
+- Login to a client computer using a domain user account
+- In File explorer enter the network path into the search bar
+- In Google search firefox download msi -> Click the 'Deploy Firefox with MSI installers - Mozilla Support' link -> Scroll down and click the link under MSI Installers
+- Set the preferred installer to 'Windows 64-bit MSI' -> Download Now
+- Once the download is complete copy the file and paste it into the network share
+- Go back to DC -> Group Policy Management -> Right click the Firefox file -> Edit -> Policies -> Software Settings -> Right click Software installations -> New -> Package -> Enter the network path into the search bar -> Software file -> Firefox setup file -> Check 'Assigned' ->
+- If you don't see the group policy right click and refresh
+- In Group Policy Management remove Authenticated Users
+- Add -> Object Types -> Check Computers
+- Enter the client computer name
+- From the client computer
 
-need m.sci file
+
+
+need m.si file
 
 can create a OU in AD and deploy group policy on top of that OU 
 
@@ -96,5 +109,5 @@ Need to go back and apply this policy
 In win 10 comp apply for policy
 - cmd -> 'gpupdate /force'
 - should get a message that says for this policy to be applied to PC needs to be restarted
-- restart this machine
+- restart this machine, then log back in to see if Firefox has been installed 
 
