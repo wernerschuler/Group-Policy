@@ -59,10 +59,16 @@
 <img src="https://i.imgur.com/iwQNzFO.png" height="60%" width="60%" alt="Screenshot showing the network path for software folder"/>
 
 - Login to a client computer using a domain user account
-- In File explorer enter the network path into the search bar
-- In Google search firefox download msi -> Click the 'Deploy Firefox with MSI installers - Mozilla Support' link -> Scroll down and click the link under MSI Installers
+- In File explorer enter the network path into the search bar, to verify that this computer can access this file
+- In Google search firefox download msi -> Click the 'Deploy Firefox with MSI installers' link -> Scroll down and click the link under MSI Installers
+
+<img src="https://i.imgur.com/95OF8yb.png" height="60%" width="60%" alt="link to download firefox msi"/>
+  
 - Set the preferred installer to 'Windows 64-bit MSI' -> Download Now
 - Once the download is complete copy the file and paste it into the network share
+
+<img src="https://i.imgur.com/8ZUZLXU.png" height="60%" width="60%" alt="Screenshot showing firefox setup file in the network share"/>
+
 - Go back to DC -> Group Policy Management -> Right click the Firefox file -> Edit -> Policies -> Software Settings -> Right click Software installations -> New -> Package -> Enter the network path into the search bar -> Software file -> Firefox setup file -> Check 'Assigned' ->
 - If you don't see the group policy right click and refresh
 - In Group Policy Management remove Authenticated Users
@@ -70,48 +76,14 @@
 - Enter the client computer name
 - From the client computer -> cmd -> 'gpupdate /force' -> Restart the computer
 - Log back into the client machine and check if Firefox has been installed
+- Can see from the image below that Firefox has been installed to the client computer:
+
+<img src="https://i.imgur.com/BnKn31C.png" height="60%" width="75%" alt="Computer homepage"/>
+
+
+  
 
 
 
-need m.si file
 
-can create a OU in AD and deploy group policy on top of that OU 
-
-start -> Windows Administrative Tools -> Group Policy Management -> Forest -> Domains -> Domain 
-
-ADUC -> Domain name -> Right click OU name and create an OU, this eg call it Staff -> 
-
-From Staff is where we want to deploy GP, anything inside Staff will get the GP
-
-Put the computer inside the Staff OU so that the GP can be applied to the computer
-
-Here we are going to setup a GP to install a software from the GP
-Open GP management -> forest -> Domains -> Domain name -> Right click Staff OU -> Create a GPO in this domain, and Link it here -> In this eg name it firefox
-
-Need to create a shared folder so other computers can have access to this folder through the network:
-File explorere -> This PC -> C: -> Create new folder name it software -> Right click folder -> Properties -> Sharing -> Advanced Sharing -> Check 'share this folder' -> Permissions -> Add -> Type domain users -> For now check full control, change, read -> and give Everyone full access 
-
-Verify that you can get to this path:
-- Win 10 -> File explorer -> in search bar type the path to this file eg \\plabdc01\\software
-
-Download firefox from win 10
-- google --> firefox download msi
-- click 'Deploy firefox with msi installers - mozilla support'
-- Under MSI installers click the link: https://www.mozilla.org/firefox/all
-- select your preferred installer: Windows 64-bit MSI -> Download Now
-
-Once download is complete copy the firefox folder and paste it into the shared folder
-
-Go back to DC -> Group policy management --> right click firefox folder -> edit -> policies -> software settings -> right click software installation -> new -> package 
-- Type the network path in the search bar eg \\plabdc01 -> Software -> Firefox setup -> check assigned ->
-
-if don't see the GP right click refresh
-
-Need to go back and apply this policy 
-- Group policy management -> Staff -> firefox -> remove authenticated users -> add -> object types -> check everything -> type in the computer name eg plabwin101
-
-In win 10 comp apply for policy
-- cmd -> 'gpupdate /force'
-- should get a message that says for this policy to be applied to PC needs to be restarted
-- restart this machine, then log back in to see if Firefox has been installed 
 
