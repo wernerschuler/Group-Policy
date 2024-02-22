@@ -80,6 +80,10 @@
 
 <img src="https://i.imgur.com/BnKn31C.png" height="60%" width="75%" alt="Computer homepage"/>
 
+**Deploying a printer**
+
+42 mins in
+
 
   
 
