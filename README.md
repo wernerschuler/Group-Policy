@@ -1,12 +1,13 @@
+
 <h1>Group Policy</h1>
 
 Purpose of project
 --
-- In this project I will be doing a variety of tasks involving Group Policy, these tasks include checking, changing, and implementing a Group Policy. I will also be deploying a software through Group Policy.
+- In this project I will be doing a variety of tasks involving Group Policy, these tasks include checking, changing, and implementing a Group Policy. I will also be deploying software through Group Policy.
 
 What is Group Policy?
 --
-- Group Policy allows administrators to manage and apply various settings and configurations across multiple computers in an organisation. Behaviour of users and computers in a network can be controlled, for example password policies can be enforced, certain features can be restricted, and software updates and applications can be deployed.
+- Group Policy allows administrators to manage and apply various settings and configurations across multiple computers in an organisation. The behaviour of users and computers in a network can be controlled, for example, password policies can be enforced, certain features can be restricted, and software updates and applications can be deployed.
 
 Tasks
 --
