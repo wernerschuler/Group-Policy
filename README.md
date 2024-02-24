@@ -38,15 +38,15 @@ Tasks
 
 <img src="https://i.imgur.com/1dvrqhA.png" height="60%" width="60%" alt="Password policy editor screen"/>
 
-**Once a policy has been applied how can it be implemented to a client machine**
+**Once a policy has been applied how can it be implemented in a client machine**
 - Restart the machine
 - Or cmd -> 'gpupdate /force'
 - The changes made in the domain will now be applied to this machine
-- **Note:** Some policy may require a restart
+- **Note:** Some policies may require a restart
 
 **If you don't have access to DC, how can you see Group Policy from your machine?**
 - Run cmd as an admin -> 'gpresult' -> 'gpresult /h' specify a path eg 'c:\gpresults.html'
-- Go to the file that was created, from there you will see the Group Policy. Screenshot below displays this
+- Go to the file that was created, from there you will see the Group Policy. The screenshot below displays this
 
 <img src="https://i.imgur.com/Wc6DrZ0.png" height="60%" width="60%" alt="Screen showing password and account policy"/>
 
@@ -57,20 +57,20 @@ Tasks
 **From rsop.msc can also see Group Policy for other users that are part of this computer**
 - Right click the computer name -> Change Query -> This computer -> Select a user
 
-**Deploy a software from Group Policy. In this example I will be deploying Firefox**
+**Deploy software from Group Policy. In this example, I will be deploying Firefox**
 - **Note:** Software can be deployed through an Organisational Unit (OU) in Active Directory.
 - In DC -> ADUC -> Create an OU -> I have created an OU called 'Staff'
 - Move the computer that you would like the Group Policy to be applied to into the Staff OU
-- Go Group Policy Management -> Right click the Staff OU -> Create a GPO in this domain, and Link it here -> Give the GPO a name, I will name it Firefox
+- Go to Group Policy Management -> Right click the Staff OU -> Create a GPO in this domain, and Link it here -> Give the GPO a name, I will name it Firefox
 - Now the other computers in the OU need to be able to access this Firefox file through network share.
   - File Explorer -> This PC -> (C:) -> Create a folder, in this example the folder is called Software -> Right click the folder -> Properties -> Sharing -> Advanced Sharing -> Check 'Share this folder' -> Permissions -> Add -> type 'domain users' -> Check Names -> OK -> For now give domain users and everyone full access
 - Make a note of the network path
 
 <img src="https://i.imgur.com/iwQNzFO.png" height="60%" width="60%" alt="Screenshot showing the network path for software folder"/>
 
-- Login to a client computer using a domain user account
-- In File explorer enter the network path into the search bar, to verify that this computer can access this file
-- In Google search firefox download msi -> Click the 'Deploy Firefox with MSI installers' link -> Scroll down and click the link under MSI Installers
+- Log in to a client computer using a domain user account
+- In File Explorer enter the network path into the search bar, to verify that this computer can access this file
+- In Google search Firefox download msi -> Click the 'Deploy Firefox with MSI installers' link -> Scroll down and click the link under MSI Installers
 
 <img src="https://i.imgur.com/95OF8yb.png" height="60%" width="60%" alt="link to download firefox msi"/>
   
@@ -83,10 +83,10 @@ Tasks
 - If you don't see the group policy right click and refresh
 - In Group Policy Management remove Authenticated Users
 - Add -> Object Types -> Check Computers
-- Enter the client computer name
+- Enter the client's computer name
 - From the client computer -> cmd -> 'gpupdate /force' -> Restart the computer
 - Log back into the client machine and check if Firefox has been installed
-- Can see from the image below that Firefox has been installed to the client computer:
+- Can see from the image below that Firefox has been installed on the client computer:
 
 <img src="https://i.imgur.com/BnKn31C.png" height="60%" width="75%" alt="Computer homepage"/>
 
